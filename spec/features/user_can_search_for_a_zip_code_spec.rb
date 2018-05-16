@@ -11,9 +11,6 @@ describe 'User' do
       expect(response).to be_success
       expect(page).to have_content('10 stations closest to you within 6 miles')
 
-      stations = JSON.parse(response.body)
-
-
       expect(stations.length).to eq(10)
       expect(stations.first.distance).to be_less_than(stations.second.distance)
 
