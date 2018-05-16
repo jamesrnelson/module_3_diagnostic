@@ -4,7 +4,7 @@ describe 'User' do
   context 'fills in search field and clicks locate' do
     it 'should be on /search and should see 10 closest stations with limitations' do
       visit root_path
-      fill_in 'q', with: '80203'
+      fill_in 'query', with: '80203'
       click_on 'Locate'
 
       expect(current_path).to eq('/search')

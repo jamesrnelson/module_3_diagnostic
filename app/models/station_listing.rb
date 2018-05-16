@@ -10,6 +10,10 @@ class StationListing
     end
   end
 
+  def closest_stations
+    all_stations.sort_by { |station| station.distance }[0..9]
+  end
+
   private
     attr_reader :zip_code
 
