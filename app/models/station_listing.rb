@@ -4,7 +4,7 @@ class StationListing
   end
 
   def all_stations
-    raw_stations = service.raw_search
+    raw_stations = service.raw_search[:fuel_stations]
     raw_stations.map do |station|
       Station.new(station)
     end
