@@ -1,1 +1,9 @@
 <h1>10 stations closest to you within 6 miles</h1>
+
+<% @fuel_stations.closest_stations.each do |station| %>
+  <h3><%= station.name %></h3>
+  <p><%= station.distance %></p>
+  <p><%= station.address %></p>
+  <p><%= station.fuel_types %></p>
+  <p><%= station.access_times %></p>
+<% end %>
