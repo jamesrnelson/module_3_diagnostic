@@ -10,7 +10,11 @@ class StationService
   private
     attr_reader :zip_code
 
+    def connection
+      Faraday.new(url: "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest/?format=json&api_key=#{ENV['API_KEY']}&location=#{@zip_code}")
+    end
+
     def response
-      Faraday.get(url: "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest/?format=json&api_key=#{ENV['API_KEY']}&location=#{@zip_code}")
+      connection.get
     end
 end
